@@ -103,6 +103,48 @@ void Update()
 
 ### – 4 Практическая работа «Добавление звукового сопровождения в игре»
 Ход работы:
+1) Импортируем звуковые дорожки в нашу игру и подключим разные аудио к каждой из сцен. При переключении между сценами аудиодорожки так же будут переключаться.
+
+2) Добавим в игру звук взрыва, который будет происходить при соприкосновении яйца с землей. Для этого в ранее созданный скрипт DragonEgg добавим некоторые строки кода.
+
+```
+public static float bottomY = -30f;
+
+public AudioSource audioSource;
+    
+private void OnTriggerEnter(Collider other) {
+    ParticleSystem ps = GetComponent<ParticleSystem>();
+    var em = ps.emission;
+    em.enabled = true;
+
+    Renderer rend;
+    rend = GetComponent<Renderer>();
+    rend.enabled = false;
+
+    audioSource = GetComponent<AudioSource>();
+    audioSource.Play();
+}
+```
+После чего мы видим, что при ловле объекта звук не срабатывает, а при пропуске - срабатывает.
+
+3) Добавим еще один звуковой файл, который будет запускаться при ловле яйца игроком. Такие же строки кода добавим в существующий скрипт-файл EnergyShield.
+
+```
+public AudioSource audioSource;
+
+private void OnCollisionEnter(Collision coll) {
+        GameObject Collided = coll.gameObject;
+        if (Collided.tag == "Dragon Egg"){
+            Destroy(Collided);
+        }
+        int score = int.Parse(scoreGT.text);
+        score +=1;
+        scoreGT.text = score.ToString();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
+    }
+```
+Получаем такой звук.
 
 
 ### – 5 Практическая работа «Добавление персонажа и сборка сцены для публикации на web-ресурсе»
