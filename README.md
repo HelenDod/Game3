@@ -186,6 +186,7 @@ https://user-images.githubusercontent.com/90499063/200298482-70881d71-7af8-4489-
 ![image](https://user-images.githubusercontent.com/90499063/200299264-6675d782-c3c3-4da2-8ede-d66e31394db2.png)
 
 3) Вот, что получилось в итоге:
+
 https://user-images.githubusercontent.com/90499063/200299074-7ea1fe81-3e34-47d0-8b13-032635f14ff1.mp4
 
 ## Выводы
